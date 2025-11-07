@@ -1,13 +1,13 @@
 {
   "project_info": {
-    "project_number": "751780136583",
-    "project_id": "cardgame-4651a",
-    "storage_bucket": "cardgame-4651a.firebasestorage.app"
+    "project_number": "743633605588",
+    "project_id": "multyplay-ef1e9",
+    "storage_bucket": "multyplay-ef1e9.firebasestorage.app"
   },
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:751780136583:android:a40ec14cbf05b7ad499a22",
+        "mobilesdk_app_id": "1:743633605588:android:7343b7437f5939f8f77c41",
         "android_client_info": {
           "package_name": "com.example.card"
         }
@@ -15,7 +15,26 @@
       "oauth_client": [],
       "api_key": [
         {
-          "current_key": "AIzaSyDA3HbqPpNJGnRJASp5wbVuamtwY5vcOEM"
+          "current_key": "AIzaSyABsPY0v_GpguZdC8Xpq_HxZw8SSiCICig"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:743633605588:android:1d2ae0ff379e8e2df77c41",
+        "android_client_info": {
+          "package_name": "com.example.generate_crossword"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyABsPY0v_GpguZdC8Xpq_HxZw8SSiCICig"
         }
       ],
       "services": {

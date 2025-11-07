@@ -41,48 +41,49 @@ class DefaultFirebaseOptions {
   }
 
   static const FirebaseOptions web = FirebaseOptions(
-    apiKey: 'AIzaSyC2v4FMIXcOJRZKMyNSyPrPJg1k5QbAwWE',
-    appId: '1:751780136583:web:35b2bdde4b9fa41d499a22',
-    messagingSenderId: '751780136583',
-    projectId: 'cardgame-4651a',
-    authDomain: 'cardgame-4651a.firebaseapp.com',
-    storageBucket: 'cardgame-4651a.firebasestorage.app',
-    measurementId: 'G-H03S08V8JZ',
+    apiKey: 'AIzaSyDY00SmXORLNPOmXpkVJ74L0zGuJ6PYpNo',
+    appId: '1:743633605588:web:3b8467a8b2e7209df77c41',
+    messagingSenderId: '743633605588',
+    projectId: 'multyplay-ef1e9',
+    authDomain: 'multyplay-ef1e9.firebaseapp.com',
+    storageBucket: 'multyplay-ef1e9.firebasestorage.app',
+    measurementId: 'G-PKV1KT44LZ',
   );
 
   static const FirebaseOptions android = FirebaseOptions(
-    apiKey: 'AIzaSyDA3HbqPpNJGnRJASp5wbVuamtwY5vcOEM',
-    appId: '1:751780136583:android:a40ec14cbf05b7ad499a22',
-    messagingSenderId: '751780136583',
-    projectId: 'cardgame-4651a',
-    storageBucket: 'cardgame-4651a.firebasestorage.app',
+    apiKey: 'AIzaSyABsPY0v_GpguZdC8Xpq_HxZw8SSiCICig',
+    appId: '1:743633605588:android:7343b7437f5939f8f77c41',
+    messagingSenderId: '743633605588',
+    projectId: 'multyplay-ef1e9',
+    storageBucket: 'multyplay-ef1e9.firebasestorage.app',
   );
 
   static const FirebaseOptions ios = FirebaseOptions(
-    apiKey: 'AIzaSyCtJEOaXGRgbeK61iR-6ZXzWlmCsP6wZQ0',
-    appId: '1:751780136583:ios:4d42ded524f3984b499a22',
-    messagingSenderId: '751780136583',
-    projectId: 'cardgame-4651a',
-    storageBucket: 'cardgame-4651a.firebasestorage.app',
+    apiKey: 'AIzaSyBL2jiWaLr80IhnEb6xJkPlNFE_DKUrsTQ',
+    appId: '1:743633605588:ios:f76504ac61dd6bbff77c41',
+    messagingSenderId: '743633605588',
+    projectId: 'multyplay-ef1e9',
+    storageBucket: 'multyplay-ef1e9.firebasestorage.app',
     iosBundleId: 'com.example.card',
   );
 
   static const FirebaseOptions macos = FirebaseOptions(
-    apiKey: 'AIzaSyCtJEOaXGRgbeK61iR-6ZXzWlmCsP6wZQ0',
-    appId: '1:751780136583:ios:4d42ded524f3984b499a22',
-    messagingSenderId: '751780136583',
-    projectId: 'cardgame-4651a',
-    storageBucket: 'cardgame-4651a.firebasestorage.app',
+    apiKey: 'AIzaSyBL2jiWaLr80IhnEb6xJkPlNFE_DKUrsTQ',
+    appId: '1:743633605588:ios:f76504ac61dd6bbff77c41',
+    messagingSenderId: '743633605588',
+    projectId: 'multyplay-ef1e9',
+    storageBucket: 'multyplay-ef1e9.firebasestorage.app',
     iosBundleId: 'com.example.card',
   );
 
   static const FirebaseOptions windows = FirebaseOptions(
-    apiKey: 'AIzaSyC2v4FMIXcOJRZKMyNSyPrPJg1k5QbAwWE',
-    appId: '1:751780136583:web:7a9412f28827da79499a22',
-    messagingSenderId: '751780136583',
-    projectId: 'cardgame-4651a',
-    authDomain: 'cardgame-4651a.firebaseapp.com',
-    storageBucket: 'cardgame-4651a.firebasestorage.app',
-    measurementId: 'G-2C0TLC4SM5',
+    apiKey: 'AIzaSyDY00SmXORLNPOmXpkVJ74L0zGuJ6PYpNo',
+    appId: '1:743633605588:web:611df476119fe22df77c41',
+    messagingSenderId: '743633605588',
+    projectId: 'multyplay-ef1e9',
+    authDomain: 'multyplay-ef1e9.firebaseapp.com',
+    storageBucket: 'multyplay-ef1e9.firebasestorage.app',
+    measurementId: 'G-4931HP3RJX',
   );
+
 }

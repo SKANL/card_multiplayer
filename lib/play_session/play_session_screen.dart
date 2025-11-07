@@ -18,6 +18,8 @@ import '../game_internals/score.dart';
 import '../style/confetti.dart';
 import '../style/my_button.dart';
 import '../style/palette.dart';
+import '../style/app_gradients.dart';
+import '../firebase_stats/firebase_status_badge.dart';
 import 'board_widget.dart';
 
 /// This widget defines the entirety of the screen that the player sees when
@@ -50,6 +52,7 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
   @override
   Widget build(BuildContext context) {
     final palette = context.watch<Palette>();
+    final firestore = Provider.of<FirebaseFirestore>(context, listen: false);
 
     return MultiProvider(
       providers: [Provider.value(value: _boardState)],
@@ -61,47 +64,59 @@ class _PlaySessionScreenState extends State<PlaySessionScreen> {
           // The stack is how you layer widgets on top of each other.
           // Here, it is used to overlay the winning confetti animation on top
           // of the game.
-          body: Stack(
-            children: [
-              // This is the main layout of the play session screen,
-              // with a settings button at top, the actual play area
-              // in the middle, and a back button at the bottom.
-              Column(
-                mainAxisAlignment: MainAxisAlignment.center,
-                children: [
-                  Align(
-                    alignment: Alignment.centerRight,
-                    child: InkResponse(
-                      onTap: () => GoRouter.of(context).push('/settings'),
-                      child: Image.asset(
-                        'assets/images/settings.png',
-                        semanticLabel: 'Settings',
+          body: Container(
+            decoration: BoxDecoration(gradient: AppGradients.playSessionGradient),
+            child: Stack(
+              children: [
+                // This is the main layout of the play session screen,
+                // with a settings button at top, the actual play area
+                // in the middle, and a back button at the bottom.
+                Column(
+                  mainAxisAlignment: MainAxisAlignment.center,
+                  children: [
+                    Align(
+                      alignment: Alignment.centerRight,
+                      child: InkResponse(
+                        onTap: () => GoRouter.of(context).push('/settings'),
+                        child: Image.asset(
+                          'assets/images/settings.png',
+                          semanticLabel: 'Settings',
+                        ),
                       ),
                     ),
-                  ),
-                  const Spacer(),
-                  // The actual UI of the game.
-                  const BoardWidget(),
-                  const Text('Drag cards to the two areas above.'),
-                  const Spacer(),
-                  Padding(
-                    padding: const EdgeInsets.all(8.0),
-                    child: MyButton(
-                      onPressed: () => GoRouter.of(context).go('/'),
-                      child: const Text('Back'),
+                    const Spacer(),
+                    // The actual UI of the game.
+                    const BoardWidget(),
+                    const Text(
+                      'Drag cards to the two areas above.',
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontWeight: FontWeight.w500,
+                      ),
+                    ),
+                    const Spacer(),
+                    Padding(
+                      padding: const EdgeInsets.all(8.0),
+                      child: MyButton(
+                        onPressed: () => GoRouter.of(context).go('/'),
+                        child: const Text('Back'),
+                      ),
+                    ),
+                  ],
+                ),
+                SizedBox.expand(
+                  child: Visibility(
+                    visible: _duringCelebration,
+                    child: IgnorePointer(
+                      child: Confetti(isStopped: !_duringCelebration),
                     ),
                   ),
-                ],
-              ),
-              SizedBox.expand(
-                child: Visibility(
-                  visible: _duringCelebration,
-                  child: IgnorePointer(
-                    child: Confetti(isStopped: !_duringCelebration),
-                  ),
                 ),
-              ),
-            ],
+                // Firebase Status Badge
+                FirebaseStatusBadge(firestore: firestore),
+              ],
+            ),
           ),
         ),
       ),

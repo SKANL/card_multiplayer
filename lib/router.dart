@@ -13,6 +13,8 @@ import 'settings/settings_screen.dart';
 import 'style/my_transition.dart';
 import 'style/palette.dart';
 import 'win_game/win_game_screen.dart';
+import 'debug/firestore_debug.dart';
+import 'firebase_stats/firebase_debug_screen.dart';
 
 /// The router describes the game's navigational hierarchy, from the main
 /// screen through settings screens all the way to each individual level.
@@ -62,6 +64,17 @@ final router = GoRouter(
           path: 'settings',
           builder: (context, state) =>
               const SettingsScreen(key: Key('settings')),
+        ),
+        if (kDebugMode)
+          GoRoute(
+            path: 'debug',
+            builder: (context, state) =>
+                const FirestoreDebugPage(key: Key('firestore debug')),
+          ),
+        GoRoute(
+          path: 'firebase-debug',
+          builder: (context, state) =>
+              const FirebaseDebugScreen(key: Key('firebase debug')),
         ),
       ],
     ),

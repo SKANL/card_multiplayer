@@ -10,6 +10,7 @@ import '../player_progress/player_progress.dart';
 import '../style/my_button.dart';
 import '../style/palette.dart';
 import '../style/responsive_screen.dart';
+import '../style/app_gradients.dart';
 import 'custom_name_dialog.dart';
 import 'settings.dart';
 
@@ -25,59 +26,70 @@ class SettingsScreen extends StatelessWidget {
 
     return Scaffold(
       backgroundColor: palette.backgroundSettings,
-      body: ResponsiveScreen(
-        squarishMainArea: ListView(
-          children: [
-            _gap,
-            const Text(
-              'Settings',
-              textAlign: TextAlign.center,
-              style: TextStyle(
-                fontFamily: 'Permanent Marker',
-                fontSize: 55,
-                height: 1,
+      body: Container(
+        decoration: BoxDecoration(gradient: AppGradients.settingsGradient),
+        child: ResponsiveScreen(
+          squarishMainArea: ListView(
+            children: [
+              _gap,
+              const Text(
+                'Settings',
+                textAlign: TextAlign.center,
+                style: TextStyle(
+                  fontFamily: 'Permanent Marker',
+                  fontSize: 55,
+                  height: 1,
+                  color: Colors.white,
+                  shadows: [
+                    Shadow(
+                      offset: Offset(2, 2),
+                      blurRadius: 4,
+                      color: Colors.black45,
+                    ),
+                  ],
+                ),
               ),
-            ),
-            _gap,
-            const _NameChangeLine('Name'),
-            ValueListenableBuilder<bool>(
-              valueListenable: settings.soundsOn,
-              builder: (context, soundsOn, child) => _SettingsLine(
-                'Sound FX',
-                Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
-                onSelected: () => settings.toggleSoundsOn(),
+              _gap,
+              const _NameChangeLine('Name'),
+              ValueListenableBuilder<bool>(
+                valueListenable: settings.soundsOn,
+                builder: (context, soundsOn, child) => _SettingsLine(
+                  'Sound FX',
+                  Icon(soundsOn ? Icons.graphic_eq : Icons.volume_off),
+                  onSelected: () => settings.toggleSoundsOn(),
+                ),
               ),
-            ),
-            ValueListenableBuilder<bool>(
-              valueListenable: settings.musicOn,
-              builder: (context, musicOn, child) => _SettingsLine(
-                'Music',
-                Icon(musicOn ? Icons.music_note : Icons.music_off),
-                onSelected: () => settings.toggleMusicOn(),
+              ValueListenableBuilder<bool>(
+                valueListenable: settings.musicOn,
+                builder: (context, musicOn, child) => _SettingsLine(
+                  'Music',
+                  Icon(musicOn ? Icons.music_note : Icons.music_off),
+                  onSelected: () => settings.toggleMusicOn(),
+                ),
               ),
-            ),
-            _SettingsLine(
-              'Reset progress',
-              const Icon(Icons.delete),
-              onSelected: () {
-                context.read<PlayerProgress>().reset();
+              _SettingsLine(
+                'Reset progress',
+                const Icon(Icons.delete),
+                onSelected: () {
+                  context.read<PlayerProgress>().reset();
 
-                final messenger = ScaffoldMessenger.of(context);
-                messenger.showSnackBar(
-                  const SnackBar(
-                    content: Text('Player progress has been reset.'),
-                  ),
-                );
-              },
-            ),
-            _gap,
-          ],
-        ),
-        rectangularMenuArea: MyButton(
-          onPressed: () {
-            GoRouter.of(context).pop();
-          },
-          child: const Text('Back'),
+                  final messenger = ScaffoldMessenger.of(context);
+                  messenger.showSnackBar(
+                    const SnackBar(
+                      content: Text('Player progress has been reset.'),
+                    ),
+                  );
+                },
+              ),
+              _gap,
+            ],
+          ),
+          rectangularMenuArea: MyButton(
+            onPressed: () {
+              GoRouter.of(context).pop();
+            },
+            child: const Text('Back'),
+          ),
         ),
       ),
     );
